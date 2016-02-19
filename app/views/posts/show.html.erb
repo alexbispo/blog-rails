@@ -5,6 +5,13 @@
       <%= @post.title %>
     </h3>
   </header>
+
+  <% if @post.image %>
+    <figure>
+      <img class="ui centered image" alt="<%= @post.image_title %>" src="<%= @post.image.to_s %>">
+    </figure>
+  <% end %>
+
   <section>
     <%= raw @post.content_html %>
     <p>

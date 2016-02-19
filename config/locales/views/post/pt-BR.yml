@@ -4,3 +4,4 @@ pt-BR:
     form:
       markdown: 'Podes escrever utilizando a sintaxe markdown.'
       preview: 'Pré-visualizar'
+      add_image: 'Adicionar imagem'

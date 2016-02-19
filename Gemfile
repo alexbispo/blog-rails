@@ -14,6 +14,7 @@ gem 'kaminari'
 gem 'puma'
 gem 'rdiscount'
 gem 'friendly_id'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-rails'

@@ -2,11 +2,13 @@
 
 <%= render 'partials/error_messages', object: @post %>
 
-<%= form_for @post, html: { class: 'ui form' } do |f| %>
+<%= form_for @post, html: {multipart: true, class: 'ui form' } do |f| %>
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+
+  <%= render 'partials/image_field', f: f %>
 
   <div class="ui top attached tabular menu">
     <a class="item active" data-tab="first">
