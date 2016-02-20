@@ -32,7 +32,7 @@ class Image < ActiveRecord::Base
       file.write(data)
     end
 
-    if @width || height
+    if @width || @height
       image = MiniMagick::Image.new(full_path)
       width =  image["width"].to_f
       height = image["height"].to_f
