@@ -12,6 +12,7 @@ addons:
         - qt5-default
         - libqt5webkit5-dev
         - qtdeclarative5-dev
+        - imagemagick
     code_climate:
         repo_token: $CODE_CLIMATE_API_KEY
     postgresql: '9.4'
