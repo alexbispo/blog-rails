@@ -1,10 +1,23 @@
-<div class="field">
+<div id="div_input_image_field" class="field">
   <div class="ui right labeled input">
     <%= f.text_field :image_title, placeholder: "Título da imagem" %>
-    <label for="post_data_stream" class="ui label icon button" style="width: 50px;">
-            <i class="large file image outline icon"></i>
-    </label>
+
+      <div id="div_loaded_image" class="ui blue image label" style="display: none">
+        <i class="file image outline icon"></i>
+        <span class="text">.jpg</span>
+        <i id="remove_selected_image" class="delete icon"></i>
+      </div>
+      <div id="input_image_options" class="ui dropdown label teal">
+        <i class="large file image outline icon"></i>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <label class="item" for="post_data_stream">
+            Selecionar...
+          </label>
+        </div>
+    </div>
     <input type="file" name="post[data_stream]" id="post_data_stream" style="display:none">
   </div>
+  <div id="message_error_input_image" class="ui basic red pointing prompt label transition" style="display:none"></div>
 </div>
 

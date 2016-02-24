@@ -21,6 +21,25 @@ class Image < ActiveRecord::Base
     "#{Rails.root}/public/#{path}/#{filename}"
   end
 
+  def to_icon(width, height)
+    return false if !self.id
+
+    if width || height
+      image = MiniMagick::Image.open(full_path)
+      iWidth =  image["width"].to_f
+      iHeight = image["height"].to_f
+      width = (iWidth/(iHeight/height.to_f)).to_i if !width
+      height = (iHeight/(iWidth/width.to_f)).to_i if !height
+      image.resize "!#{width}x#{height}"
+
+      copy_filename = "copy_#{filename}"
+      copy_full_path = "#{Rails.root}/public/#{path}/#{copy_filename}"
+      image.write(copy_full_path);
+      ObjectSpace.define_finalizer(self, proc { File.unlink(copy_full_path) if File.exist?(copy_full_path)})
+      "#{path}#{copy_filename}"
+    end
+  end
+
   def update_file
     data = @data_stream && @data_stream.read
     return false if !data || data.nil? || data.size < 1
