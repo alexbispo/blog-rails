@@ -2,18 +2,36 @@
   <div class="ui right labeled input">
     <%= f.text_field :image_title, placeholder: "Título da imagem" %>
 
+      <!--
       <div id="div_loaded_image" class="ui blue image label" style="display: none">
         <i class="file image outline icon"></i>
         <span class="text">.jpg</span>
         <i id="remove_selected_image" class="delete icon"></i>
       </div>
-      <div id="input_image_options" class="ui dropdown label teal">
+      -->
+      <div id="input_image_options" class="ui simple dropdown label teal">
         <i class="large file image outline icon"></i>
         <i class="dropdown icon"></i>
         <div class="menu">
           <label class="item" for="post_data_stream">
             Selecionar...
           </label>
+          <div id="remove_image" class="item <%= image ? '' : 'disabled'%>">
+            <i class="trash icon"></i>
+            Remover
+
+              <%#= link_to [image.imageable_id, image],
+                  method: :delete,
+                  data: {
+                    header: t('views.defaults.attention'),
+                    confirm: t('views.defaults.destroy_confirmation', target: image.title),
+                    cancel: t('views.defaults.cancel'),
+                    ok: t('views.defaults.yes') },
+                  class: "ui red mini button" do %>
+              <!--<i class="trash icon"></i>-->
+              <%#= t('views.defaults.delete') %>
+            <%# end %>
+          </div>
         </div>
     </div>
     <input type="file" name="post[data_stream]" id="post_data_stream" style="display:none">
